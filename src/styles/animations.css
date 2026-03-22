@@ -1,0 +1,36 @@
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-accent) 70%, white);
+  outline-offset: 2px;
+}
+
+/* Keep interactions snappy with only paint-safe transitions. */
+a,
+button,
+input,
+select,
+textarea {
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+/* Disable optional animation utility classes for low-motion runtime. */
+.animate-fade-in-up,
+.animate-fade-in-left,
+.animate-fade-in-right,
+.animate-fade-in,
+.animate-slide-in-up,
+.animate-scale-in,
+.animate-stagger > * {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

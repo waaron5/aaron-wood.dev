@@ -1,0 +1,35 @@
+:root {
+  --font-heading: 'Sora', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+
+  --color-primary: #1f4f8c;
+  --color-accent: #0ea5a4;
+
+  --color-bg-a: #f7fafc;
+  --color-bg-b: #eef3f8;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+  --color-text-soft: #4b5563;
+  --color-border: #d6deea;
+
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
+
+  --container-width: 1120px;
+  --section-y: clamp(4rem, 7vw, 6rem);
+  --radius: 18px;
+  --nav-height: 72px;
+}
+
+:root[data-theme='dark'] {
+  --color-primary: #8db6f0;
+  --color-accent: #2dd4bf;
+
+  --color-bg-a: #0d141d;
+  --color-bg-b: #111c28;
+  --color-surface: #162434;
+  --color-text: #e5edf6;
+  --color-text-soft: #a7b5c8;
+  --color-border: #2a3e53;
+
+  --shadow-soft: 0 16px 36px rgba(0, 0, 0, 0.35);
+}

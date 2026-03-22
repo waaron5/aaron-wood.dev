@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Aaron Wood Portfolio</title>
+  <desc id="desc">Social preview image for Aaron Wood's portfolio website.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7fafc" />
+      <stop offset="100%" stop-color="#e8f2ff" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1f4f8c" />
+      <stop offset="100%" stop-color="#0ea5a4" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="180" cy="80" r="180" fill="#1f4f8c" fill-opacity="0.08" />
+  <circle cx="1080" cy="580" r="220" fill="#0ea5a4" fill-opacity="0.12" />
+
+  <rect x="112" y="110" width="976" height="410" rx="28" fill="#ffffff" fill-opacity="0.9" stroke="#d6deea" />
+
+  <text x="170" y="250" fill="#1f2937" font-size="74" font-weight="700" font-family="Sora, Avenir Next, Segoe UI, sans-serif">
+    Aaron Wood
+  </text>
+  <text x="170" y="320" fill="#4b5563" font-size="38" font-weight="500" font-family="Manrope, Segoe UI, sans-serif">
+    Full Stack Developer
+  </text>
+
+  <rect x="170" y="374" width="430" height="14" rx="7" fill="url(#accent)" />
+
+  <text x="170" y="450" fill="#1f4f8c" font-size="33" font-weight="600" font-family="Manrope, Segoe UI, sans-serif">
+    aaron-wood.dev
+  </text>
+</svg>
