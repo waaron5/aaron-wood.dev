@@ -2,17 +2,17 @@ export const profile = {
   name: 'Aaron Wood',
   role: 'Full Stack Developer',
   tagline:
-    'Built production software used by 200+ professionals',
-  headshotSrc: '/headshot-placeholder.svg',
+    'Building production software used by 200+ professionals',
+  headshotSrc: '/headshot.jpg',
   headshotAlt: 'Aaron Wood headshot',
   githubUrl: 'https://github.com/',
   linkedInUrl: 'https://www.linkedin.com/',
   email: 'aaron@aaron-wood.dev',
   resumePath: 'https://www.linkedin.com/',
   about: {
-    heading: 'About Me',
+    heading: 'About Aaron',
     summary:
-      'I am a developer focused on building maintainable web applications that are easy to use and easy to scale. I enjoy turning ambiguous ideas into clear technical plans, shipping iterative improvements, and collaborating closely with stakeholders to deliver measurable results.',
+      'Aaron is business-minded. He keeps the ultimate goal at the forefront of his mind throughout production. Wether building an internal tool for a company or a personal project... ',
     highlight:
       'My approach combines product thinking, modern frontend engineering, and pragmatic backend design to deliver features that perform well in production.',
   },

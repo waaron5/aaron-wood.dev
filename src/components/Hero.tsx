@@ -34,6 +34,25 @@ function ViewInWebsiteIcon() {
   )
 }
 
+function EnvelopeIcon() {
+  return (
+    <svg
+      className="button-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  )
+}
+
 export default function Hero() {
   return (
     <section id="hero" className="hero section">
@@ -83,7 +102,7 @@ export default function Hero() {
             >
               <span>Email Me</span>
               <span className="button-affordance" aria-hidden="true">
-                @
+                <EnvelopeIcon />
               </span>
             </a>
           </div>

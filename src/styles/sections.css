@@ -468,10 +468,12 @@ h1 {
 
 .project-link-arrow {
   display: inline-flex;
+  transition: transform 160ms ease;
 }
 
-.project-link:hover .project-link-arrow {
-  transform: none;
+.project-link:hover .project-link-arrow,
+.project-link:focus-visible .project-link-arrow {
+  transform: translateX(4px);
 }
 
 .contact-header {
