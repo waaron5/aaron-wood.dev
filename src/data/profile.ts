@@ -2,7 +2,7 @@ export const profile = {
   name: 'Aaron Wood',
   role: 'Full Stack Developer',
   tagline:
-    'Building production software used by 200+ professionals',
+    '200+ users across applications built on the BYU FHSS web team and for Muse event company.',
   headshotSrc: '/headshot.jpg',
   headshotAlt: 'Aaron Wood headshot',
   githubUrl: 'https://github.com/',
@@ -12,7 +12,7 @@ export const profile = {
   about: {
     heading: 'About Aaron',
     summary:
-      'Aaron is business-minded. He keeps the ultimate goal at the forefront of his mind throughout production. Wether building an internal tool for a company or a personal project... ',
+      'Aaron is business-minded. Time saved, money saved, and user experience are all at the forefront of his mind during production. Whether building enterprise software or a personal health dashboard, it\'s the end product that excites him, and the endless possibilities of what can be built. In this new age of AI, Aaron has become an expert in leveraging agents to build better and faster, without neglecting foundational knowledge of software architecture and decision making. He\'s looking forward to working on his next big project in the workforce.',
     highlight:
       'My approach combines product thinking, modern frontend engineering, and pragmatic backend design to deliver features that perform well in production.',
   },

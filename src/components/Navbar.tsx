@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 
 type NavbarProps = {
   theme: 'light' | 'dark'
@@ -18,6 +18,22 @@ const SHOW_THEME_TOGGLE = false
 export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
   const [activeSection, setActiveSection] = useState('#hero')
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const handleNavItemClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    event.preventDefault()
+    setMenuOpen(false)
+
+    const target = document.querySelector(href)
+    if (!(target instanceof HTMLElement)) {
+      return
+    }
+
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    window.history.replaceState(null, '', href)
+  }
 
   useEffect(() => {
     const sectionElements = navItems
@@ -80,14 +96,18 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
         <div className="nav-controls">
           <button
-            className="menu-toggle"
+            className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
             type="button"
             onClick={() => setMenuOpen((current) => !current)}
             aria-expanded={menuOpen}
             aria-controls="primary-nav-links"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-            {menuOpen ? 'Close' : 'Menu'}
+            <span className="menu-toggle-icon" aria-hidden="true">
+              <span className="menu-toggle-bar" />
+              <span className="menu-toggle-bar" />
+              <span className="menu-toggle-bar" />
+            </span>
           </button>
 
           {SHOW_THEME_TOGGLE && (
@@ -102,7 +122,7 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
             <li key={item.href}>
               <a
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(event) => handleNavItemClick(event, item.href)}
                 aria-current={activeSection === item.href ? 'page' : undefined}
                 className={activeSection === item.href ? 'is-active' : undefined}
               >

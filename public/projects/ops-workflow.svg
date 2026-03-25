@@ -1,0 +1,34 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="flow-bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EDF5FF" />
+      <stop offset="1" stop-color="#E9F8F6" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#flow-bg)" />
+
+  <rect x="100" y="80" width="1400" height="740" rx="24" fill="#FFFFFF" stroke="#C9D7E8" />
+
+  <rect x="150" y="150" width="920" height="620" rx="18" fill="#F5F9FF" stroke="#D3DFEF" />
+  <rect x="186" y="194" width="260" height="18" rx="9" fill="#1F3655" />
+  <rect x="186" y="230" width="840" height="1" fill="#D6E1EF" />
+
+  <rect x="186" y="264" width="280" height="120" rx="14" fill="#D8E7FA" />
+  <rect x="484" y="264" width="280" height="120" rx="14" fill="#D8F4EF" />
+  <rect x="782" y="264" width="244" height="120" rx="14" fill="#E5EEFB" />
+
+  <rect x="186" y="416" width="840" height="60" rx="12" fill="#FFFFFF" stroke="#D3DFEF" />
+  <rect x="186" y="496" width="840" height="60" rx="12" fill="#FFFFFF" stroke="#D3DFEF" />
+  <rect x="186" y="576" width="840" height="60" rx="12" fill="#FFFFFF" stroke="#D3DFEF" />
+
+  <rect x="1100" y="150" width="350" height="620" rx="18" fill="#F8FBFF" stroke="#D3DFEF" />
+  <rect x="1134" y="196" width="210" height="18" rx="9" fill="#1F3655" />
+  <rect x="1134" y="238" width="280" height="12" rx="6" fill="#7488A3" />
+  <rect x="1134" y="288" width="280" height="1" fill="#D6E1EF" />
+  <rect x="1134" y="324" width="260" height="12" rx="6" fill="#7488A3" />
+  <rect x="1134" y="356" width="260" height="12" rx="6" fill="#7488A3" />
+  <rect x="1134" y="388" width="260" height="12" rx="6" fill="#7488A3" />
+  <rect x="1134" y="420" width="260" height="12" rx="6" fill="#7488A3" />
+
+  <text x="150" y="790" fill="#0F766E" font-size="32" font-family="Arial, sans-serif" font-weight="700">Workflow Detail + Activity Stream</text>
+</svg>
