@@ -2,7 +2,7 @@ export const profile = {
   name: 'Aaron Wood',
   role: 'Full Stack Developer',
   tagline:
-    '200+ users across applications built on the BYU FHSS web team and for Muse event company.',
+    'Contributed to apps used by 200+ BYU faculty/staff; built an inventory system for Muse to replace Excel/Dropbox workflows',
   headshotSrc: '/headshot.jpg',
   headshotAlt: 'Aaron Wood headshot',
   githubUrl: 'https://github.com/',
@@ -12,9 +12,9 @@ export const profile = {
   about: {
     heading: 'About Aaron',
     summary:
-      'Aaron is business-minded. Time saved, money saved, and user experience are all at the forefront of his mind during production. Whether building enterprise software or a personal health dashboard, it\'s the end product that excites him, and the endless possibilities of what can be built. In this new age of AI, Aaron has become an expert in leveraging agents to build better and faster, without neglecting foundational knowledge of software architecture and decision making. He\'s looking forward to working on his next big project in the workforce.',
+      'Aaron Wood is a computer science student at BYU focused on building practical, real-world software that people actually use. He has experience contributing to full stack applications serving 200+ faculty and staff and is currently developing an inventory management system for a corporate event company to replace error-prone Excel and Dropbox workflows. His work emphasizes clarity, speed, and usability over unnecessary complexity.\n\nHe is strongest in frontend development and user experience, with hands-on experience in TypeScript, Angular, and modern web tooling. At the same time, he is actively pushing deeper into backend architecture, databases, and system design so he can confidently own features end to end. He values understanding how systems work under the hood, not just getting things to function.\n\nAaron moves quickly and uses AI as a force multiplier to design and ship complete products, not just prototypes. He is especially interested in building software that simplifies messy real-world processes and creates measurable improvements in how people work.\n\nBeyond coding, he is interested in health, longevity, and using data to help people make better decisions. He is motivated by building tools that are both technically solid and genuinely useful.',
     highlight:
-      'My approach combines product thinking, modern frontend engineering, and pragmatic backend design to deliver features that perform well in production.',
+      'I build practical software that turns messy workflows into clear, usable products.',
   },
   contact: {
     heading: 'Get In Touch',

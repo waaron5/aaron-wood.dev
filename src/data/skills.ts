@@ -6,15 +6,15 @@ export type SkillCategory = {
 export const skillCategories: SkillCategory[] = [
   {
     name: 'Frontend',
-    items: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Vite'],
+    items: ['React', 'Next.js', 'Angular', 'TypeScript', 'HTML/CSS'],
   },
   {
-    name: 'Backend',
-    items: ['Node.js', 'Express', 'PostgreSQL', 'REST APIs'],
+    name: 'Backend & Data',
+    items: ['tRPC', 'Prisma', 'Python', 'SQL', 'AWS'],
   },
   {
-    name: 'Tools & Development',
-    items: ['Git', 'GitHub', 'Docker', 'CI/CD', 'Vercel'],
+    name: 'Tools & Platforms',
+    items: ['Git', 'GitHub', 'Docker', 'Vercel', 'Claude Code', 'Codex', 'Copilot'],
   },
 ]
 

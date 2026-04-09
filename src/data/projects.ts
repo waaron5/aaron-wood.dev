@@ -65,7 +65,7 @@ export const projectDetails: ProjectDetail[] = [
     summary:
       'Production inventory software for a corporate event planning company, covering inventory, events, reservations, and gifting in one workflow.',
     description:
-      'Built a real-world internal platform that gives the Muse team one place to manage inventory availability, event allocations, reservation approvals, and gifting.',
+      'Production full-stack inventory management system for Muse Event Company, replacing Excel/Drobxox workflows',
     facts: [
       { label: 'Use Case', value: 'Corporate event inventory' },
       { label: 'Users', value: 'Real internal operations staff' },
@@ -73,9 +73,9 @@ export const projectDetails: ProjectDetail[] = [
       { label: 'Deploy', value: 'Vercel frontend, Neon database' },
     ],
     transformation: {
-      heading: 'From Excel And Dropbox To Real Software',
+      heading: 'From Spreadsheets And Dropbox To Real Software',
       summary:
-        'I took Muse from spreadsheet-based inventory tracking to a clean internal app, reducing inventory confusion and cutting down the errors that come from clunky manual workflows.',
+        'Muse is a growing corporate event planning company relying heavily on excel and dropbox for workfows. They told me their biggest headache was inventory management: lost items, broken data, and expensive mistakes.\n\nI built a custom inventory management app to replace their system. It makes reservations and returns easy, reduces errors, and keeps inventory fully accounted for.',
       before: {
         label: 'Before',
         caption: 'Inventory lived in spreadsheets and ad hoc file-sharing workflows.',
@@ -132,17 +132,17 @@ export const projectDetails: ProjectDetail[] = [
       },
     ],
     links: {
-      live: 'https://example.com/muse-inventory-management',
-      github: 'https://github.com/',
+      live: 'https://muse-inventory-management.vercel.app',
+      github: 'https://github.com/waaron5/muse-inventory-management',
     },
   },
   {
     slug: 'wearable-health-data',
     title: 'Wearable Health Data',
     summary:
-      'An internal operations hub that replaced fragmented spreadsheet reporting with a unified workflow dashboard.',
+      'My "passion project," a mobile app that gives me an AI snapshot of my overall health from wearable data.',
     description:
-      'Built an internal dashboard to centralize reporting and workflow status, reducing manual cross-team updates and improving visibility across active initiatives.',
+      'My "passion project," a mobile app that gives me an AI snapshot of my overall health from wearable data.',
     facts: [
       { label: 'Use Case', value: 'Internal operations reporting' },
       { label: 'Users', value: 'Project managers and team leads' },
@@ -224,8 +224,8 @@ export const projectDetails: ProjectDetail[] = [
       },
     ],
     links: {
-      live: 'https://example.com/content-delivery',
-      github: 'https://github.com/',
+      live: 'https://muse-inventory-management.vercel.app',
+      github: 'https://github.com/waaron5/muse-inventory-management',
     },
   },
 ]

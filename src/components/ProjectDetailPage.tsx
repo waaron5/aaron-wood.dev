@@ -77,9 +77,6 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
     project.screenshots.find((screenshot) => screenshot.src === selectedScreenshotSrc) ??
     project.screenshots[0]
   const sectionLinks = [
-    { href: '#problem', label: 'Problem' },
-    { href: '#solution', label: 'Solution' },
-    { href: '#impact', label: 'Impact' },
     { href: '#screenshots', label: 'Screenshots' },
     { href: '#stack', label: 'Stack' },
   ]
@@ -127,7 +124,9 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                 <div className="project-overview-copy">
                   <p className="eyebrow">Transformation</p>
                   <h2>{project.transformation.heading}</h2>
-                  <p className="project-section-copy">{project.transformation.summary}</p>
+                  <p className="project-section-copy project-transformation-summary">
+                    {project.transformation.summary}
+                  </p>
                 </div>
 
                 <div className="project-transformation" aria-label={`${project.title} before and after`}>
@@ -138,7 +137,6 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                       alt={project.transformation.before.alt}
                       loading="lazy"
                     />
-                    <figcaption>{project.transformation.before.caption}</figcaption>
                   </figure>
 
                   <div className="project-transformation-arrow" aria-hidden="true">
@@ -152,7 +150,6 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                       alt={project.transformation.after.alt}
                       loading="lazy"
                     />
-                    <figcaption>{project.transformation.after.caption}</figcaption>
                   </figure>
                 </div>
               </>
@@ -175,59 +172,19 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
               </>
             )}
 
-            <nav className="project-jump-nav" aria-label="Project sections">
-              {sectionLinks.map((link) => (
-                <a key={link.href} href={link.href} className="project-jump-link">
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-        </section>
-
-        <section id="problem" className="section section-alt">
-          <div className="container project-section-shell">
-            <div className="project-section-heading">
-              <p className="eyebrow">Context</p>
-              <h2>Problem</h2>
-            </div>
-            <div className="project-section-body">
-              <p className="project-section-copy">{project.problem}</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="solution" className="section">
-          <div className="container project-section-shell">
-            <div className="project-section-heading">
-              <p className="eyebrow">Build</p>
-              <h2>Solution</h2>
-            </div>
-            <div className="project-section-body">
-              <p className="project-section-copy">{project.solution}</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="impact" className="section section-alt">
-          <div className="container project-section-shell">
-            <div className="project-section-heading">
-              <p className="eyebrow">Results</p>
-              <h2>Impact</h2>
-            </div>
-            <div className="project-section-body">
-              <ul className="project-impact-grid">
-                {project.impact.map((item) => (
-                  <li className="project-impact-item" key={item}>
-                    {item}
-                  </li>
+            {project.transformation ? null : (
+              <nav className="project-jump-nav" aria-label="Project sections">
+                {sectionLinks.map((link) => (
+                  <a key={link.href} href={link.href} className="project-jump-link">
+                    {link.label}
+                  </a>
                 ))}
-              </ul>
-            </div>
+              </nav>
+            )}
           </div>
         </section>
 
-        <section id="screenshots" className="section">
+        <section id="screenshots" className="section section-alt">
           <div className="container project-section-shell">
             <div className="project-section-heading">
               <p className="eyebrow">Proof</p>
@@ -266,7 +223,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
           </div>
         </section>
 
-        <section id="stack" className="section section-alt">
+        <section id="stack" className="section">
           <div className="container project-section-shell">
             <div className="project-section-heading">
               <p className="eyebrow">Technical</p>

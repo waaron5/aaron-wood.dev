@@ -77,6 +77,10 @@
   line-height: 1.8;
 }
 
+.project-transformation-summary {
+  white-space: pre-line;
+}
+
 .project-facts-grid {
   margin: 0;
   display: grid;

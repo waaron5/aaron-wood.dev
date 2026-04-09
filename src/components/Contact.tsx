@@ -1,5 +1,38 @@
 import { profile, socialLinks } from '../data/profile'
 
+function LinkedInIcon() {
+  return (
+    <svg
+      className="button-icon"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3zM9 9h3.8v1.71h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.09V21h-4v-5.41c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z" />
+    </svg>
+  )
+}
+
+function EnvelopeIcon() {
+  return (
+    <svg
+      className="button-icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  )
+}
+
 export default function Contact() {
   return (
     <section id="contact" className="section">
@@ -9,26 +42,26 @@ export default function Contact() {
           <p>{profile.contact.message}</p>
         </div>
 
-        <div className="contact-cta">
-          <a href={`mailto:${profile.email}`} className="button button-primary button-large">
-            Email Me
-          </a>
-        </div>
-
-        <div className="contact-divider">or find me on</div>
-
         <ul className="contact-links">
-          {socialLinks.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-                rel={link.href.startsWith('mailto:') ? undefined : 'noreferrer'}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {socialLinks.map((link) => {
+            const isEmailLink = link.href.startsWith('mailto:')
+
+            return (
+              <li key={link.label}>
+                <a
+                  className={`button ${isEmailLink ? 'button-primary' : 'button-secondary'}`}
+                  href={link.href}
+                  target={isEmailLink ? undefined : '_blank'}
+                  rel={isEmailLink ? undefined : 'noreferrer'}
+                >
+                  <span>{link.label}</span>
+                  <span className="button-affordance" aria-hidden="true">
+                    {isEmailLink ? <EnvelopeIcon /> : <LinkedInIcon />}
+                  </span>
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>
