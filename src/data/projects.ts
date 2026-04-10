@@ -230,7 +230,7 @@ export const projectDetails: ProjectDetail[] = [
   },
 ]
 
-export const projects: ProjectCardData[] = projectDetails.map((project) => {
+export const projects: ProjectCardData[] = projectDetails.slice(0, 2).map((project) => {
   const firstScreenshot = project.screenshots[0]
 
   return {
