@@ -76,6 +76,7 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
   const selectedScreenshot =
     project.screenshots.find((screenshot) => screenshot.src === selectedScreenshotSrc) ??
     project.screenshots[0]
+  const overviewHeading = project.overviewVideo ? 'Watch The Demo' : 'At A Glance'
   const sectionLinks = [
     { href: '#screenshots', label: 'Screenshots' },
     { href: '#stack', label: 'Stack' },
@@ -118,7 +119,9 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
         </section>
 
         <section className="section project-overview-section">
-          <div className="container project-overview-shell">
+          <div
+            className={`container project-overview-shell${project.overviewVideo ? ' has-overview-media' : ''}`}
+          >
             {project.transformation ? (
               <>
                 <div className="project-overview-copy">
@@ -157,22 +160,39 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
               <>
                 <div className="project-overview-copy">
                   <p className="eyebrow">Overview</p>
-                  <h2>At A Glance</h2>
-                  <p className="project-section-copy">{project.description}</p>
+                  <h2>{overviewHeading}</h2>
+                  {project.overviewVideo ? null : (
+                    <p className="project-section-copy">{project.description}</p>
+                  )}
                 </div>
 
-                <dl className="project-facts-grid" aria-label={`${project.title} quick facts`}>
-                  {project.facts.map((fact) => (
-                    <div className="project-fact-card" key={`${fact.label}-${fact.value}`}>
-                      <dt>{fact.label}</dt>
-                      <dd>{fact.value}</dd>
+                {project.overviewVideo ? (
+                  <div className="project-overview-media">
+                    <div className="project-video-embed">
+                      <iframe
+                        src={project.overviewVideo.embedUrl}
+                        title={project.overviewVideo.title}
+                        loading="lazy"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
                     </div>
-                  ))}
-                </dl>
+                  </div>
+                ) : (
+                  <dl className="project-facts-grid" aria-label={`${project.title} quick facts`}>
+                    {project.facts.map((fact) => (
+                      <div className="project-fact-card" key={`${fact.label}-${fact.value}`}>
+                        <dt>{fact.label}</dt>
+                        <dd>{fact.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
               </>
             )}
 
-            {project.transformation ? null : (
+            {project.transformation || project.overviewVideo ? null : (
               <nav className="project-jump-nav" aria-label="Project sections">
                 {sectionLinks.map((link) => (
                   <a key={link.href} href={link.href} className="project-jump-link">

@@ -330,12 +330,20 @@ h1 {
   justify-content: center;
 }
 
+.pill-list {
+  align-content: flex-start;
+}
+
 .pill-list li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: 0.4rem 0.85rem;
   color: var(--color-text-soft);
+  line-height: 1.2;
   transition: color 160ms ease, border-color 160ms ease;
   cursor: default;
 }
@@ -403,6 +411,7 @@ h1 {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: start;
   margin-top: 1.5rem;
   width: 100%;
 }

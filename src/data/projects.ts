@@ -39,12 +39,18 @@ export type ProjectTransformation = {
   }
 }
 
+export type ProjectOverviewVideo = {
+  embedUrl: string
+  title: string
+}
+
 export type ProjectDetail = {
   slug: string
   title: string
   summary: string
   description: string
   facts: ProjectFact[]
+  overviewVideo?: ProjectOverviewVideo
   transformation?: ProjectTransformation
   problem: string
   solution: string
@@ -143,6 +149,10 @@ export const projectDetails: ProjectDetail[] = [
       'My "passion project," a mobile app that gives me an AI snapshot of my overall health from wearable data.',
     description:
       'My "passion project," a mobile app that gives me an AI snapshot of my overall health from wearable data.',
+    overviewVideo: {
+      embedUrl: 'https://www.youtube-nocookie.com/embed/M7lc1UVf-VE',
+      title: 'Wearable Health Data app demo',
+    },
     facts: [
       { label: 'Use Case', value: 'Internal operations reporting' },
       { label: 'Users', value: 'Project managers and team leads' },
