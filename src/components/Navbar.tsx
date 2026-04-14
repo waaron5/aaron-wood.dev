@@ -1,10 +1,5 @@
 import { useEffect, useState, type MouseEvent } from 'react'
 
-type NavbarProps = {
-  theme: 'light' | 'dark'
-  onToggleTheme: () => void
-}
-
 const navItems = [
   { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
@@ -13,9 +8,7 @@ const navItems = [
   { href: '#contact', label: 'Contact' },
 ]
 
-const SHOW_THEME_TOGGLE = false
-
-export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
+export default function Navbar() {
   const [activeSection, setActiveSection] = useState('#hero')
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -110,11 +103,6 @@ export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
             </span>
           </button>
 
-          {SHOW_THEME_TOGGLE && (
-            <button className="theme-toggle" type="button" onClick={onToggleTheme}>
-              {theme === 'dark' ? 'Light mode' : 'Dark mode'}
-            </button>
-          )}
         </div>
 
         <ul className="nav-links" id="primary-nav-links">

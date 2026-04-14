@@ -1,4 +1,5 @@
 import { profile } from '../data/profile'
+import { hasRealLink, isExternalLink } from '../utils/links'
 
 function GitHubIcon() {
   return (
@@ -14,7 +15,7 @@ function GitHubIcon() {
   )
 }
 
-function ViewInWebsiteIcon() {
+function DownloadIcon() {
   return (
     <svg
       className="button-icon"
@@ -27,9 +28,9 @@ function ViewInWebsiteIcon() {
       aria-hidden="true"
       focusable="false"
     >
-      <path d="M14 3h7v7" />
-      <path d="M10 14 21 3" />
-      <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+      <path d="M12 3v12" />
+      <path d="m7 10 5 5 5-5" />
+      <path d="M5 21h14" />
     </svg>
   )
 }
@@ -54,6 +55,13 @@ function EnvelopeIcon() {
 }
 
 export default function Hero() {
+  const githubLinkProps = isExternalLink(profile.githubUrl)
+    ? { target: '_blank', rel: 'noreferrer' as const }
+    : {}
+  const resumeLinkProps = hasRealLink(profile.resumePath)
+    ? { download: 'Aaron-Wood-Resume.pdf' }
+    : {}
+
   return (
     <section id="hero" className="hero section">
       <div className="container hero-content">
@@ -74,28 +82,30 @@ export default function Hero() {
           <p className="lead">{profile.tagline}</p>
 
           <div className="hero-actions" aria-label="Primary actions">
-            <a
-              className="button button-primary"
-              href={profile.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>GitHub</span>
-              <span className="button-affordance" aria-hidden="true">
-                <GitHubIcon />
-              </span>
-            </a>
-            <a
-              className="button button-secondary"
-              href={profile.resumePath}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>View Resume</span>
-              <span className="button-affordance" aria-hidden="true">
-                <ViewInWebsiteIcon />
-              </span>
-            </a>
+            {hasRealLink(profile.githubUrl) ? (
+              <a
+                className="button button-primary"
+                href={profile.githubUrl}
+                {...githubLinkProps}
+              >
+                <span>GitHub</span>
+                <span className="button-affordance" aria-hidden="true">
+                  <GitHubIcon />
+                </span>
+              </a>
+            ) : null}
+            {hasRealLink(profile.resumePath) ? (
+              <a
+                className="button button-secondary"
+                href={profile.resumePath}
+                {...resumeLinkProps}
+              >
+                <span>Download Resume</span>
+                <span className="button-affordance" aria-hidden="true">
+                  <DownloadIcon />
+                </span>
+              </a>
+            ) : null}
             <a
               className="button button-secondary"
               href={`mailto:${profile.email}`}

@@ -14,6 +14,13 @@
 
   --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
 
+  --color-button-primary-text: #f8fbff;
+  --color-footer-bg: #0f172a;
+  --color-footer-text: #dbe7f5;
+  --color-footer-heading: #f8fbff;
+  --color-footer-statement: #c5d3e4;
+  --color-footer-muted: #a8bdd5;
+
   --container-width: 1200px;
   --section-y: clamp(4rem, 7vw, 6rem);
   --radius: 18px;
@@ -22,16 +29,4 @@
   --font-size-h3: clamp(1.2rem, 2vw, 1.4rem);
 }
 
-:root[data-theme='dark'] {
-  --color-primary: #8db6f0;
-  --color-accent: #2dd4bf;
 
-  --color-bg-a: #0d141d;
-  --color-bg-b: #111c28;
-  --color-surface: #162434;
-  --color-text: #e5edf6;
-  --color-text-soft: #a7b5c8;
-  --color-border: #2a3e53;
-
-  --shadow-soft: 0 16px 36px rgba(0, 0, 0, 0.35);
-}

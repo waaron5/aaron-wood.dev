@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import type { ProjectDetail } from '../data/projects'
 import Footer from './Footer'
+import { hasRealLink, isExternalLink, isPlaceholderLink } from '../utils/links'
 
 type ProjectDetailPageProps = {
   project: ProjectDetail
 }
 
-function isExternalLink(url: string): boolean {
-  return /^https?:\/\//.test(url)
+function getYouTubeWatchUrl(embedUrl: string): string | undefined {
+  const match = embedUrl.match(/\/embed\/([^?]+)/)
+  return match ? `https://www.youtube.com/watch?v=${match[1]}` : undefined
 }
 
 function GitHubIcon() {
@@ -67,7 +69,16 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
     project.screenshots[0]?.src ?? '',
   )
 
-  const liveLinkProps = isExternalLink(project.links.live)
+  const fallbackLiveUrl =
+    isPlaceholderLink(project.links.live) && project.overviewVideo
+      ? getYouTubeWatchUrl(project.overviewVideo.embedUrl)
+      : undefined
+  const liveHref = fallbackLiveUrl ?? project.links.live
+  const hasLiveLink = hasRealLink(liveHref)
+  const hasGithubLink = hasRealLink(project.links.github)
+  const liveButtonLabel = fallbackLiveUrl ? 'Watch Demo' : 'Live Demo'
+
+  const liveLinkProps = isExternalLink(liveHref)
     ? { target: '_blank', rel: 'noreferrer' as const }
     : {}
   const githubLinkProps = isExternalLink(project.links.github)
@@ -102,18 +113,22 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
             <h1>{project.title}</h1>
             <p className="project-page-summary">{project.summary}</p>
             <div className="hero-actions" aria-label={`${project.title} project links`}>
-              <a className="button button-primary" href={project.links.live} {...liveLinkProps}>
-                <span>Live Demo</span>
-                <span className="button-affordance" aria-hidden="true">
-                  <ExternalLinkIcon />
-                </span>
-              </a>
-              <a className="button button-secondary" href={project.links.github} {...githubLinkProps}>
-                <span>GitHub</span>
-                <span className="button-affordance" aria-hidden="true">
-                  <GitHubIcon />
-                </span>
-              </a>
+              {hasLiveLink ? (
+                <a className="button button-primary" href={liveHref} {...liveLinkProps}>
+                  <span>{liveButtonLabel}</span>
+                  <span className="button-affordance" aria-hidden="true">
+                    <ExternalLinkIcon />
+                  </span>
+                </a>
+              ) : null}
+              {hasGithubLink ? (
+                <a className="button button-secondary" href={project.links.github} {...githubLinkProps}>
+                  <span>GitHub</span>
+                  <span className="button-affordance" aria-hidden="true">
+                    <GitHubIcon />
+                  </span>
+                </a>
+              ) : null}
             </div>
           </div>
         </section>
@@ -221,11 +236,17 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
             </div>
             <div className="project-section-body">
               <figure className="project-shot project-shot-featured">
-                <img
-                  src={selectedScreenshot.src}
-                  alt={selectedScreenshot.alt}
-                  loading="lazy"
-                />
+                <div
+                  className={`project-shot-media${
+                    selectedScreenshot.format === 'portrait' ? ' is-portrait' : ''
+                  }`}
+                >
+                  <img
+                    src={selectedScreenshot.src}
+                    alt={selectedScreenshot.alt}
+                    loading="lazy"
+                  />
+                </div>
                 <figcaption>
                   <h3>{selectedScreenshot.title}</h3>
                   <p>{selectedScreenshot.caption}</p>
@@ -238,11 +259,15 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                     <button
                       key={screenshot.src}
                       type="button"
-                      className={`project-shot-toggle${screenshot.src === selectedScreenshot.src ? ' is-active' : ''}`}
+                      className={`project-shot-toggle${
+                        screenshot.src === selectedScreenshot.src ? ' is-active' : ''
+                      }${screenshot.format === 'portrait' ? ' is-portrait' : ''}`}
                       onClick={() => setSelectedScreenshotSrc(screenshot.src)}
                       aria-pressed={screenshot.src === selectedScreenshot.src}
                     >
-                      <img src={screenshot.src} alt="" loading="lazy" aria-hidden="true" />
+                      <div className="project-shot-toggle-media" aria-hidden="true">
+                        <img src={screenshot.src} alt="" loading="lazy" />
+                      </div>
                       <span>{screenshot.title}</span>
                     </button>
                   ))}

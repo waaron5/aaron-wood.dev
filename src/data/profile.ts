@@ -5,10 +5,10 @@ export const profile = {
     'Building apps used by 200+ BYU faculty/staff; built an inventory system for Muse to replace Excel/Dropbox workflows',
   headshotSrc: '/headshot.jpg',
   headshotAlt: 'Aaron Wood headshot',
-  githubUrl: 'https://github.com/',
-  linkedInUrl: 'https://www.linkedin.com/',
-  email: 'aaron@aaron-wood.dev',
-  resumePath: 'https://www.linkedin.com/',
+  githubUrl: 'https://github.com/waaron5',
+  linkedInUrl: 'https://www.linkedin.com/in/aaron-wood-cs/',
+  email: 'aarondnwd@gmail.com',
+  resumePath: '/Aaron-Wood-Resume.pdf',
   about: {
     heading: 'About Aaron',
     summary:

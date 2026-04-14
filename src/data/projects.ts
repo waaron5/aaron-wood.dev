@@ -19,6 +19,7 @@ export type ProjectScreenshot = {
   caption: string
   src: string
   alt: string
+  format?: 'landscape' | 'portrait'
 }
 
 export type ProjectFact = {
@@ -77,7 +78,7 @@ export const projectDetails: ProjectDetail[] = [
     summary:
       'Production inventory software for a corporate event planning company, covering inventory, events, reservations, and gifting in one workflow.',
     description:
-      'Production full-stack inventory management system for Muse Event Company, replacing Excel/Drobxox workflows',
+      'Production full-stack inventory management system for Muse Event Company, replacing Excel/Dropbox workflows',
     facts: [
       { label: 'Use Case', value: 'Corporate event inventory' },
       { label: 'Users', value: 'Real internal operations staff' },
@@ -87,7 +88,7 @@ export const projectDetails: ProjectDetail[] = [
     transformation: {
       heading: 'From Spreadsheets And Dropbox To Real Software',
       summary:
-        'Muse is a growing corporate event planning company relying heavily on excel and dropbox for workfows. They told me their biggest headache was inventory management: lost items, broken data, and expensive mistakes.\n\nI built a custom inventory management app to replace their system. It makes reservations and returns easy, reduces errors, and keeps inventory fully accounted for.',
+        'Muse is a growing corporate event planning company relying heavily on excel and dropbox for workflows. They told me their biggest headache was inventory management: lost items, broken data, and expensive mistakes.\n\nI built a custom inventory management app to replace their system. It makes reservations and returns easy, reduces errors, and keeps inventory fully accounted for.',
       before: {
         label: 'Before',
         caption: 'Inventory lived in spreadsheets and ad hoc file-sharing workflows.',
@@ -149,8 +150,8 @@ export const projectDetails: ProjectDetail[] = [
     },
   },
   {
-    slug: 'wearable-health-data',
-    title: 'Wearable Health Data',
+    slug: 'ai-wearable-insights',
+    title: 'AI Wearable Insights',
     summary:
       'My "passion project," a mobile app that gives me an AI snapshot of my overall health from wearable data.',
     description:
@@ -163,92 +164,64 @@ export const projectDetails: ProjectDetail[] = [
     ],
     overviewVideo: {
       embedUrl: 'https://www.youtube-nocookie.com/embed/5tnXrVCMmKs',
-      title: 'Wearable Health Data app demo',
+      title: 'AI Wearable Insights app demo',
       format: 'portrait',
     },
     facts: [
-      { label: 'Use Case', value: 'Internal operations reporting' },
-      { label: 'Users', value: 'Project managers and team leads' },
-      { label: 'Focus', value: 'Ownership, blockers, status tracking' },
+      { label: 'Use Case', value: 'Personal wearable health insights' },
+      { label: 'Users', value: 'Individual health-conscious users' },
+      { label: 'Focus', value: 'AI-driven health analysis and trends' },
       { label: 'Stack', value: 'Expo, React Native, TypeScript, FastAPI, PostgreSQL' },
     ],
     problem:
-      'Operations and delivery teams were relying on spreadsheets and status emails, which created lag, duplicate entry, and weak visibility into blockers.',
+      'Wearable devices generate daily health data but most companion apps bury it in raw numbers with no interpretation. I wanted something that actually told me what my data meant and whether my health trends were improving.',
     solution:
-      'I shipped a centralized dashboard with role-based views, shared filters, and a consistent update flow so teams could track ownership, blockers, and progress from one interface.',
+      'I built a mobile app that ingests wearable data and runs it through an AI model to produce a daily health snapshot, a conversational chat assistant for asking questions about the data, and a week-by-week history view for spotting changes over time.',
     impact: [
-      'Estimated 8-10 hours saved per week across project managers and team leads by eliminating duplicate status consolidation.',
-      'Reduced stale or conflicting status reports by an estimated 40% through single-source updates.',
-      'Faster decision-making during standups because blockers and SLA risks were visible in real time.',
+      'Replaced passive metric logging with an active AI-powered daily summary of health signals, activity, and recovery patterns.',
+      'Made weekly trend changes easy to identify with a dedicated history view built around how health actually shifts over time.',
+      'Added a conversational layer so I can ask specific questions about my data instead of interpreting raw numbers myself.',
     ],
     stackSummary:
       'Expo and React Native power the mobile app, TypeScript keeps the codebase consistent, FastAPI handles the backend services, and PostgreSQL stores the health data.',
     technologies: ['Expo', 'React Native', 'TypeScript', 'FastAPI', 'PostgreSQL'],
     screenshots: [
       {
-        title: 'Operations Overview',
+        title: 'Daily Dashboard',
         caption:
-          'A consolidated view of active initiatives, blockers, and ownership status for internal stakeholders.',
-        src: '/projects/ops-overview.svg',
-        alt: 'Operations dashboard overview with status cards and filters mockup',
+          "A quick snapshot of today's core health signals, activity, recovery, and trend indicators in one place.",
+        src: '/projects/panivo/dashboard-panivo.png',
+        alt: 'Wearable health dashboard showing daily metrics, charts, and recovery signals',
+        format: 'portrait',
       },
       {
-        title: 'Workflow Detail Panel',
+        title: 'AI Health Chat',
         caption:
-          'Focused task panel showing assignees, dependency risks, and action history to reduce context switching.',
-        src: '/projects/ops-workflow.svg',
-        alt: 'Operations workflow detail panel with tasks and activity timeline mockup',
+          'An in-app assistant that explains what changed in the data and gives more context on why it matters.',
+        src: '/projects/panivo/chat-panivo.png',
+        alt: 'Wearable health chat screen with AI-generated explanations and recommendations',
+        format: 'portrait',
+      },
+      {
+        title: 'Weekly History',
+        caption:
+          'A scrollable history view for comparing patterns over time and spotting changes across recent weeks.',
+        src: '/projects/panivo/history-panivo.png',
+        alt: 'Wearable health history screen showing weekly charts and health trends',
+        format: 'portrait',
+      },
+      {
+        title: 'Settings',
+        caption:
+          'Controls for preferences, notifications, and data-sharing options tied to the wearable experience.',
+        src: '/projects/panivo/settings-panivo.png',
+        alt: 'Wearable health settings screen with account preferences and notification options',
+        format: 'portrait',
       },
     ],
     links: {
-      live: 'https://example.com/ops-dashboard',
-      github: 'https://github.com/',
-    },
-  },
-  {
-    slug: 'credit-card-finder',
-    title: 'Credit Card Finder',
-    summary:
-      'A performance-focused web app that streamlined content publishing and improved release velocity.',
-    description:
-      'Implemented a modern web application with fast page loads, accessible interaction patterns, and deployment automation to support rapid release cycles.',
-    facts: [
-      { label: 'Use Case', value: 'Content publishing workflow' },
-      { label: 'Users', value: 'Editors and readers' },
-      { label: 'Focus', value: 'Fast pages and faster releases' },
-      { label: 'Stack', value: 'React, TypeScript, Vercel' },
-    ],
-    problem:
-      'Publishing new content required too many manual steps, and slow pages created extra friction for both editors and readers.',
-    solution:
-      'I introduced an optimized frontend architecture with reusable UI patterns, accessible interaction states, and automated deployment checks to make publishing faster and more reliable.',
-    impact: [
-      'Cut estimated release prep time by 50% through deployment automation and standardized content workflows.',
-      'Improved page responsiveness, reducing perceived load delays and bounce risk on content-heavy routes.',
-      'Lowered QA defect churn by introducing consistent UI behavior and reusable component patterns.',
-    ],
-    stackSummary:
-      'React and TypeScript handle the frontend experience, Vercel manages deployment, and CI/CD automation keeps releases fast and repeatable.',
-    technologies: ['React', 'TypeScript', 'Vercel', 'CI/CD'],
-    screenshots: [
-      {
-        title: 'Content Dashboard',
-        caption:
-          'Editor-facing dashboard for drafting, previewing, and shipping content without manual handoffs.',
-        src: '/projects/content-dashboard.svg',
-        alt: 'Content delivery dashboard for authors and editors mockup',
-      },
-      {
-        title: 'Performance-Optimized Reader View',
-        caption:
-          'Reader interface optimized for fast interaction and clear typography across desktop and mobile.',
-        src: '/projects/content-performance.svg',
-        alt: 'Content web app reader interface optimized for performance mockup',
-      },
-    ],
-    links: {
-      live: 'https://muse-inventory-management.vercel.app',
-      github: 'https://github.com/waaron5/muse-inventory-management',
+      live: 'https://www.youtube.com/watch?v=5tnXrVCMmKs',
+      github: 'https://github.com/waaron5/ai-wearable-insights.git',
     },
   },
 ]
@@ -256,25 +229,11 @@ export const projectDetails: ProjectDetail[] = [
 export const projects: ProjectCardData[] = projectDetails.slice(0, 2).map((project) => {
   const firstScreenshot = project.screenshots[0]
   const wearablePreviewFrames =
-    project.slug === 'wearable-health-data'
-      ? [
-          {
-            src: '/projects/panivo/dashboard-panivo.png',
-            alt: 'Wearable health dashboard screen',
-          },
-          {
-            src: '/projects/panivo/chat-panivo.png',
-            alt: 'Wearable health chat assistant screen',
-          },
-          {
-            src: '/projects/panivo/history-panivo.png',
-            alt: 'Wearable health history screen',
-          },
-          {
-            src: '/projects/panivo/settings-panivo.png',
-            alt: 'Wearable health settings screen',
-          },
-        ]
+    project.slug === 'ai-wearable-insights'
+      ? project.screenshots.slice(0, 4).map((screenshot) => ({
+          src: screenshot.src,
+          alt: screenshot.alt,
+        }))
       : undefined
 
   return {
@@ -286,7 +245,7 @@ export const projects: ProjectCardData[] = projectDetails.slice(0, 2).map((proje
     preview: {
       alt:
         wearablePreviewFrames?.length
-          ? 'Sequence of wearable health app screens showing dashboard, chat, history, and settings.'
+          ? 'Wearable health app preview showing dashboard, AI chat, history, and settings screenshots in a clean collage.'
           : firstScreenshot.alt,
       src: wearablePreviewFrames?.length ? undefined : firstScreenshot.src,
       frames: wearablePreviewFrames,

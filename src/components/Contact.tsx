@@ -1,4 +1,5 @@
 import { profile, socialLinks } from '../data/profile'
+import { hasRealLink, isExternalLink } from '../utils/links'
 
 function LinkedInIcon() {
   return (
@@ -34,6 +35,10 @@ function EnvelopeIcon() {
 }
 
 export default function Contact() {
+  const visibleLinks = socialLinks.filter((link) =>
+    link.href.startsWith('mailto:') ? true : hasRealLink(link.href),
+  )
+
   return (
     <section id="contact" className="section">
       <div className="container section-content">
@@ -43,16 +48,19 @@ export default function Contact() {
         </div>
 
         <ul className="contact-links">
-          {socialLinks.map((link) => {
+          {visibleLinks.map((link) => {
             const isEmailLink = link.href.startsWith('mailto:')
+            const externalLinkProps =
+              !isEmailLink && isExternalLink(link.href)
+                ? { target: '_blank', rel: 'noreferrer' as const }
+                : {}
 
             return (
               <li key={link.label}>
                 <a
                   className={`button ${isEmailLink ? 'button-primary' : 'button-secondary'}`}
                   href={link.href}
-                  target={isEmailLink ? undefined : '_blank'}
-                  rel={isEmailLink ? undefined : 'noreferrer'}
+                  {...externalLinkProps}
                 >
                   <span>{link.label}</span>
                   <span className="button-affordance" aria-hidden="true">
