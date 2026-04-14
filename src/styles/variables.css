@@ -18,6 +18,8 @@
   --section-y: clamp(4rem, 7vw, 6rem);
   --radius: 18px;
   --nav-height: 72px;
+  --font-size-body: 1.15rem;
+  --font-size-h3: clamp(1.2rem, 2vw, 1.4rem);
 }
 
 :root[data-theme='dark'] {

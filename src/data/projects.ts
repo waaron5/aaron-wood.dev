@@ -5,8 +5,12 @@ export type ProjectCardData = {
   technologies: string[]
   href: string
   preview: {
-    src: string
     alt: string
+    src?: string
+    frames?: {
+      src: string
+      alt: string
+    }[]
   }
 }
 
@@ -42,6 +46,7 @@ export type ProjectTransformation = {
 export type ProjectOverviewVideo = {
   embedUrl: string
   title: string
+  format?: 'landscape' | 'portrait'
 }
 
 export type ProjectDetail = {
@@ -49,6 +54,7 @@ export type ProjectDetail = {
   title: string
   summary: string
   description: string
+  overviewHighlights?: string[]
   facts: ProjectFact[]
   overviewVideo?: ProjectOverviewVideo
   transformation?: ProjectTransformation
@@ -149,15 +155,22 @@ export const projectDetails: ProjectDetail[] = [
       'My "passion project," a mobile app that gives me an AI snapshot of my overall health from wearable data.',
     description:
       'My "passion project," a mobile app that gives me an AI snapshot of my overall health from wearable data.',
+    overviewHighlights: [
+      "Dashboard: A clear snapshot of today's key health metrics and recent weekly trends.",
+      "Chat: An AI assistant that explains the user's health data and why it matters.",
+      'History: A week-by-week view that makes changes in health patterns easy to track over time.',
+      'Settings: Controls for email notifications, optional data sharing, and account preferences.',
+    ],
     overviewVideo: {
-      embedUrl: 'https://www.youtube-nocookie.com/embed/M7lc1UVf-VE',
+      embedUrl: 'https://www.youtube-nocookie.com/embed/5tnXrVCMmKs',
       title: 'Wearable Health Data app demo',
+      format: 'portrait',
     },
     facts: [
       { label: 'Use Case', value: 'Internal operations reporting' },
       { label: 'Users', value: 'Project managers and team leads' },
       { label: 'Focus', value: 'Ownership, blockers, status tracking' },
-      { label: 'Stack', value: 'Node.js, Express, PostgreSQL' },
+      { label: 'Stack', value: 'Expo, React Native, TypeScript, FastAPI, PostgreSQL' },
     ],
     problem:
       'Operations and delivery teams were relying on spreadsheets and status emails, which created lag, duplicate entry, and weak visibility into blockers.',
@@ -169,8 +182,8 @@ export const projectDetails: ProjectDetail[] = [
       'Faster decision-making during standups because blockers and SLA risks were visible in real time.',
     ],
     stackSummary:
-      'Node.js and Express power the application layer, PostgreSQL stores workflow data, and REST APIs support shared status views across teams.',
-    technologies: ['Node.js', 'Express', 'PostgreSQL', 'REST APIs'],
+      'Expo and React Native power the mobile app, TypeScript keeps the codebase consistent, FastAPI handles the backend services, and PostgreSQL stores the health data.',
+    technologies: ['Expo', 'React Native', 'TypeScript', 'FastAPI', 'PostgreSQL'],
     screenshots: [
       {
         title: 'Operations Overview',
@@ -242,6 +255,27 @@ export const projectDetails: ProjectDetail[] = [
 
 export const projects: ProjectCardData[] = projectDetails.slice(0, 2).map((project) => {
   const firstScreenshot = project.screenshots[0]
+  const wearablePreviewFrames =
+    project.slug === 'wearable-health-data'
+      ? [
+          {
+            src: '/projects/panivo/dashboard-panivo.png',
+            alt: 'Wearable health dashboard screen',
+          },
+          {
+            src: '/projects/panivo/chat-panivo.png',
+            alt: 'Wearable health chat assistant screen',
+          },
+          {
+            src: '/projects/panivo/history-panivo.png',
+            alt: 'Wearable health history screen',
+          },
+          {
+            src: '/projects/panivo/settings-panivo.png',
+            alt: 'Wearable health settings screen',
+          },
+        ]
+      : undefined
 
   return {
     slug: project.slug,
@@ -250,8 +284,12 @@ export const projects: ProjectCardData[] = projectDetails.slice(0, 2).map((proje
     technologies: project.technologies,
     href: `/projects/${project.slug}`,
     preview: {
-      src: firstScreenshot.src,
-      alt: firstScreenshot.alt,
+      alt:
+        wearablePreviewFrames?.length
+          ? 'Sequence of wearable health app screens showing dashboard, chat, history, and settings.'
+          : firstScreenshot.alt,
+      src: wearablePreviewFrames?.length ? undefined : firstScreenshot.src,
+      frames: wearablePreviewFrames,
     },
   }
 })

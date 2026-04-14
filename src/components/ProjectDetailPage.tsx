@@ -161,14 +161,23 @@ export default function ProjectDetailPage({ project }: ProjectDetailPageProps) {
                 <div className="project-overview-copy">
                   <p className="eyebrow">Overview</p>
                   <h2>{overviewHeading}</h2>
-                  {project.overviewVideo ? null : (
-                    <p className="project-section-copy">{project.description}</p>
-                  )}
+                  {project.overviewHighlights?.length ? (
+                    <ul className="project-overview-highlights" aria-label={`${project.title} overview highlights`}>
+                      {project.overviewHighlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {project.overviewVideo ? null : <p className="project-section-copy">{project.description}</p>}
                 </div>
 
                 {project.overviewVideo ? (
                   <div className="project-overview-media">
-                    <div className="project-video-embed">
+                    <div
+                      className={`project-video-embed${
+                        project.overviewVideo.format === 'portrait' ? ' is-portrait' : ''
+                      }`}
+                    >
                       <iframe
                         src={project.overviewVideo.embedUrl}
                         title={project.overviewVideo.title}
