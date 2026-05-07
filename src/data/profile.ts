@@ -2,7 +2,7 @@ export const profile = {
   name: 'Aaron Wood',
   role: 'Full Stack Developer',
   tagline:
-    'Full-stack developer building production software used by 200+ BYU faculty and staff. Experience building custom business software for a corporate event company and using AI-assisted workflows to ship faster.',
+    'Full-stack developer building production software used by 200+ BYU faculty and staff. Experienced in building custom business software for a corporate event company and using AI-assisted workflows to ship faster.',
   headshotSrc: '/headshot.jpg',
   headshotAlt: 'Aaron Wood headshot',
   githubUrl: 'https://github.com/waaron5',

@@ -86,7 +86,7 @@ export const projectDetails: ProjectDetail[] = [
       { label: 'Deploy', value: 'Vercel frontend, Neon database' },
     ],
     transformation: {
-      heading: 'From Spreadsheets And Dropbox To Real Software',
+      heading: 'From Spreadsheets And Dropbox To Software',
       summary:
         'Muse is a growing corporate event planning company relying heavily on excel and dropbox for workflows. They told me their biggest headache was inventory management: lost items, broken data, and expensive mistakes.\n\nI built a custom inventory management app to replace their system. It makes reservations and returns easy, reduces errors, and keeps inventory fully accounted for.',
       before: {
