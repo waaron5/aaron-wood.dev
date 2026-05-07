@@ -10,15 +10,19 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     name: 'Backend',
-    items: ['TypeScript', 'Node.js', 'tRPC', 'Prisma'],
+    items: ['Node.js', 'tRPC', 'Prisma'],
   },
   {
     name: 'Languages',
-    items: ['Python', 'C++', 'SQL'],
+    items: ['TypeScript', 'Python', 'SQL'],
+  },
+  {
+    name: 'Databases',
+    items: ['PostgreSQL'],
   },
   {
     name: 'Tools',
-    items: ['Git', 'GitHub', 'Vercel', 'PostgreSQL', 'Claude', 'Codex', 'Copilot'],
+    items: ['Git', 'GitHub', 'Vercel', 'Claude', 'Codex', 'Copilot'],
   },
 ]
 

@@ -409,8 +409,9 @@ h1 {
 .skills-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: start;
+  justify-content: center;
   margin-top: 1.5rem;
   width: 100%;
 }
@@ -418,8 +419,17 @@ h1 {
 .skill-category {
   display: grid;
   gap: 0.6rem;
+  grid-column: span 2;
   justify-items: center;
   text-align: center;
+}
+
+.skill-category:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.skill-category:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .skill-category h3 {
@@ -617,6 +627,12 @@ h1 {
 
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skill-category,
+  .skill-category:nth-child(4),
+  .skill-category:nth-child(5) {
+    grid-column: auto;
   }
 
   .hero-content {
