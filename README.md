@@ -1,73 +1,41 @@
-# React + TypeScript + Vite
+# Aaron Wood
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Computer Science student and builder based in New York City.
 
-Currently, two official plugins are available:
+I'm interested in startups, software engineering, AI, analytics, and solving real business problems with technology. I enjoy taking ideas from concept to working product, whether that's building internal tools, client projects, or experimenting with new business ideas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What You'll Find Here
 
-## React Compiler
+* Projects I've built
+* Technical write-ups and notes
+* Work experience
+* Current areas of focus
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Current Projects
 
-## Expanding the ESLint configuration
+### Varsten
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+An AI cost optimization platform designed to help companies understand, control, and reduce AI spending through analytics, recommendations, and automation.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Muse
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+An inventory management platform built for event operations, featuring inventory tracking, reservations, conflict detection, approval workflows, and reporting.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Technologies
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Python • FastAPI • PostgreSQL • React • Next.js • TypeScript • Prisma • SQL • Docker
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Currently
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* Finishing a Computer Science degree
+* Building software projects
+* Exploring startup opportunities
+* Looking for internships and early-career engineering roles
+
+## Contact
+
+* LinkedIn: linkedin.com/in/aaron-wood-cs
+* GitHub: github.com/waaron5
+* Email: aarondnwd@gmail.com
+
+Thanks for stopping by.
