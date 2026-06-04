@@ -73,6 +73,83 @@ export type ProjectDetail = {
 
 export const projectDetails: ProjectDetail[] = [
   {
+    slug: 'varsten-ai-cost-optimization',
+    title: 'Varsten AI Cost Optimization',
+    summary:
+      'AI spend command center for measuring model costs, surfacing optimization opportunities, applying savings levers, and proving customer impact.',
+    description:
+      'Full-stack AI cost optimization platform for finding waste, applying savings levers, and proving measurable reductions in AI spend',
+    facts: [
+      { label: 'Use Case', value: 'AI cost optimization' },
+      { label: 'Users', value: 'AI operations and platform teams' },
+      { label: 'Scope', value: 'Command center, levers, guardrails, proof' },
+      { label: 'Focus', value: 'Savings, trust, and governance' },
+    ],
+    transformation: {
+      heading: 'From Hidden AI Waste To Measured Savings',
+      summary:
+        'AI-heavy teams need more than raw usage dashboards. They need to know where spend is leaking, which recommendations are safe to apply, and whether those actions actually reduced customer cost.\n\nI built Varsten as an operational command center for AI spend. It prioritizes savings opportunities, exposes controllable optimization levers, adds guardrails for budget risk, and gives teams a proof layer for measured savings.',
+      before: {
+        label: 'Command Center',
+        caption: 'Prioritized recommendations turn AI spend data into concrete savings decisions.',
+        src: '/projects/varsten/varsten-home.png',
+        alt: 'Varsten command center showing AI spend, savings, trust score, decision queue, and recent actions',
+      },
+      after: {
+        label: 'Proof',
+        caption: 'Savings proof connects applied recommendations to measurable customer impact.',
+        src: '/projects/varsten/varsten-proof.png',
+        alt: 'Varsten proof page showing counterfactual spend, actual spend, gross saved, and net savings',
+      },
+    },
+    problem:
+      'AI product teams can burn budget quickly across models, routes, prompts, failed requests, and repeated calls. Without a focused operations layer, it is hard to know which changes are worth applying and how much value they created.',
+    solution:
+      'I built a full-stack platform with a command center for spend decisions, optimization levers for routing and caching behavior, guardrails for budget rules, and proof views that summarize measured savings.',
+    impact: [
+      'Turned scattered AI usage and cost signals into a prioritized decision queue with estimated monthly savings.',
+      'Created operational levers for smart routing, semantic caching, token trimming, cheaper model evaluation, and batching.',
+      'Added guardrails and proof views so teams can manage cost risk while reporting concrete savings outcomes.',
+    ],
+    stackSummary:
+      'React and TypeScript drive the product interface, FastAPI handles service endpoints, PostgreSQL supports the savings data model, and AI APIs provide the cost and workload context that Varsten optimizes.',
+    technologies: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'AI APIs'],
+    screenshots: [
+      {
+        title: 'Command Center',
+        caption:
+          'Overview dashboard showing spend, saved amount, annualized savings, trust score, open decisions, top waste, and recent optimization actions.',
+        src: '/projects/varsten/varsten-home.png',
+        alt: 'Varsten command center dashboard with AI spend metrics, decision queue, top waste, and recent actions',
+      },
+      {
+        title: 'Optimization Levers',
+        caption:
+          'Engine view for controlling smart routing, semantic cache, token trim, cheaper model recommendations, and batching behavior.',
+        src: '/projects/varsten/varsten-levers.png',
+        alt: 'Varsten engine levers page showing AI savings controls and active optimization toggles',
+      },
+      {
+        title: 'Budget Guardrails',
+        caption:
+          'Guardrails view for setting customer, feature, and team budget rules with review thresholds and hard caps.',
+        src: '/projects/varsten/varsten-gaurdrails.png',
+        alt: 'Varsten guardrails page showing budget rules and an add budget rule form',
+      },
+      {
+        title: 'Savings Proof',
+        caption:
+          'Proof page comparing counterfactual spend, actual optimized spend, gross saved amount, and net customer savings.',
+        src: '/projects/varsten/varsten-proof.png',
+        alt: 'Varsten proof page showing savings attribution metrics and a measurement note',
+      },
+    ],
+    links: {
+      live: '',
+      github: '',
+    },
+  },
+  {
     slug: 'muse-inventory-management',
     title: 'Muse Inventory Management',
     summary:
@@ -98,7 +175,7 @@ export const projectDetails: ProjectDetail[] = [
       after: {
         label: 'After',
         caption: 'A clear inventory system with searchable data, reservations, and event workflows.',
-        src: '/projects/muse/muse-inventory-page.png',
+        src: '/projects/muse/muse-inventory.png',
         alt: 'Muse inventory management software interface showing searchable inventory and reservation actions',
       },
     },
@@ -119,29 +196,29 @@ export const projectDetails: ProjectDetail[] = [
         title: 'Inventory Overview',
         caption:
           'Searchable inventory view showing quantities, reserved counts, locations, and quick reserve actions for operational staff.',
-        src: '/projects/muse/muse-inventory-page.png',
+        src: '/projects/muse/muse-inventory.png',
         alt: 'Muse inventory page showing item quantities, reserved counts, locations, and reserve actions',
       },
       {
         title: 'Events Workflow',
         caption:
           'Event list connecting venues, dates, inventory allocations, and gift status so teams can plan from one screen.',
-        src: '/projects/muse/muse-events-page.png',
+        src: '/projects/muse/muse-events.png',
         alt: 'Muse events page showing event details, assigned inventory, and gifts',
       },
       {
-        title: 'Reservations Approval Flow',
+        title: 'Item Detail And Reservations',
         caption:
-          'Reservation management view for approving requests, tracking quantities, and handling item returns without losing inventory state.',
-        src: '/projects/muse/muse-reservations-page.png',
-        alt: 'Muse reservations page showing approval actions, quantities, and return workflow',
+          'Item detail view showing quantity, location, reservation history, and the action staff use to reserve inventory from one place.',
+        src: '/projects/muse/muse-item-details.png',
+        alt: 'Muse item detail page showing inventory metadata and reservation actions',
       },
       {
-        title: 'Gifting Inventory',
+        title: 'Add Item Flow',
         caption:
-          'Dedicated gifting inventory screen for managing event gifts separately from standard operational inventory.',
-        src: '/projects/muse/muse-gifts-page.png',
-        alt: 'Muse gifting page showing gift inventory items and usage actions',
+          'New item form for adding inventory images, descriptions, quantities, locations, and operational notes.',
+        src: '/projects/muse/muse-add-item.png',
+        alt: 'Muse add item page showing fields for item image, name, description, quantity, location, and notes',
       },
     ],
     links: {
@@ -226,7 +303,7 @@ export const projectDetails: ProjectDetail[] = [
   },
 ]
 
-export const projects: ProjectCardData[] = projectDetails.slice(0, 2).map((project) => {
+export const projects: ProjectCardData[] = projectDetails.map((project) => {
   const firstScreenshot = project.screenshots[0]
   const wearablePreviewFrames =
     project.slug === 'ai-wearable-insights'
